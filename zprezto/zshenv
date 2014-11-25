@@ -1,0 +1,63 @@
+#
+# Defines environment variables.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Ensure that a non-login, non-interactive shell has a defined environment.
+if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprofile"
+fi
+# initialize rbenv
+export RBENV_ROOT=/usr/local/var/rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+### Add mysql to the path
+export PATH="/usr/local/mysql/bin:$PATH"
+
+### Add postgres to the path
+export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin"
+export PGHOST=/tmp
+
+# Compilation flags
+export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+#
+export GREP_OPTIONS="-I --color=auto --exclude=*.pyc --exclude-dir=tmp --exclude-dir=cache --exclude-dir=log --exclude-dir=coverage --exclude-dir=RAW --exclude-dir=doc"                                                 
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+#
+# Customize to your needs...
+#
+#
+#export PATH="/Users/sean/.rbenv/shims:/Users/sean/.rbenv/bin:/usr/local/opt/rbenv/shims:/usr/local/opt/rbenv/bin:/Users/sean/.rbenv/shims:/usr/local/bin:/usr/local/sbin:/Users/sean/.rbenv/shims:/Users/sean/.rbenv/bin:/usr/local/opt/rbenv/shims:/usr/local/opt/rbenv/bin:/usr/bin:/bin:/sbin:/usr/sbin:/sbin:/usr/sbin"
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+#
+export VISUAL=/usr/local/bin/vim
+export EDITOR=$VISUAL
+export PSQL_EDITOR=$VISUAL
+export PAGER="less"
+export LESS="-irMSx4 -FX"
+
+#export SENCHA_CMD_3_0_0="/Users/sean/bin/Sencha/Cmd/5.0.1.231"
+#export SENCHA_CMD_3_0_0="/Users/sean/bin/Sencha/Cmd/5.0.0.160"
+#export ANDROID_HOME=$HOME/code/android/sdk
+#export PATH=$SENCHA_CMD_3_0_0:$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+#export JAVA_HOME=$(/usr/libexec/java_home)
+#

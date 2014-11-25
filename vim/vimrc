@@ -1,0 +1,146 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/vundle
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/vundle'
+" The following are examples of different formats supported.
+" Keep Plugin commands between here and filetype plugin indent on.
+" scripts on GitHub repos
+"Plugin 'FuzzyFinder'
+" git repos on your local machine (i.e. when working on your own plugin)
+" ...
+"Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'kien/ctrlp.vim.git'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'itchyny/lightline.vim'
+Plugin 'tpope/vim-rbenv.git'
+Plugin 'tpope/vim-bundler.git'
+Plugin 'tpope/vim-rails.git'
+Plugin 'tpope/vim-fugitive.git'
+Plugin 'mattn/emmet-vim'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'valloric/matchtagalways'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'stephpy/vim-yaml'
+Plugin 'danro/rename.vim.git'
+
+" All of your Plugins must be added before the following line
+call vundle#end()   " required
+filetype plugin indent on     " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList          - list configured plugins
+" :PluginInstall(!)    - install (update) plugins
+" :PluginSearch(!) foo - search (or refresh cache first) for foo
+" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Plugin commands are not allowed.
+" Put your stuff after this line
+"
+" " RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+" map <Leader>s :call RunNearestSpec()<CR>
+" map <Leader>l :call RunLastSpec()<CR>
+map <Leader>T :call RunAllSpecs()<CR>
+
+"  GitGutter, disable but allow toggle
+let g:gitgutter_enabled = 0
+map <Leader>g :GitGutterToggle<CR>
+
+"
+"let rspec_command = "rspec {spec}"
+"let rspec_options = " --require=support/vim_formatter.rb --format VimFormatter --out quickfix.out --format progress"
+let g:rspec_command = "!clear && echo spring rspec {spec} && spring rspec {spec}"
+
+" Height of the command bar
+set cmdheight=1
+" Always show the status line
+set laststatus=2
+
+" edit vimrc and source it when saved
+map <leader>e :e! ~/.vimrc<cr>
+autocmd! bufwritepost .vimrc source %
+
+" Centralize backups, swapfiles and undo history
+set backupdir=~/.vim/backups
+set directory=~/.vim/swaps
+if exists("&undodir")
+  set undodir=~/.vim/undo
+endif
+
+" Highlight searches ( off )
+set nohlsearch
+" Ignore case of searches
+
+set ignorecase
+" If a capital letter is included in search, make it case-sensitive
+set smartcase  
+
+" Highlight dynamically as pattern is typed
+set incsearch
+
+" Show the cursor position
+set ruler
+
+" toggle paste mode
+nmap <leader>o :set paste!<CR>
+
+" Save a file as root (,W)
+noremap <leader>W :w !sudo tee % > /dev/null<CR>
+
+" Automatic commands
+if has("autocmd")
+  " Enable file type detection
+  filetype on
+  " Treat .json files as .js
+  autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+endif
+
+" Setup term color support
+if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
+  set t_Co=256
+endif
+
+colo jellybeans
+
+" Spelling
+set spell
+
+" underline misspelled words
+"
+hi clear SpellBad
+hi SpellBad cterm=underline
+
+syntax on
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " Ignore these
+set tabstop=2 shiftwidth=2 expandtab
+
+" match tag always
+let g:mta_use_matchparen_group = 1
+let g:mta_filetypes = {
+    \ 'eruby' : 1,
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \}
+
+runtime macros/matchit.vim
+
+" use mac cut and paste buffer!
+"
+if has("macunix")
+  if v:version >= 703
+    " Default yank and paste go to Mac's clipboard
+    set clipboard=unnamed
+  endif
+endif
+
