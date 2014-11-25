@@ -1,0 +1,9 @@
+\pset linestyle unicode
+\pset border 2
+\pset null NULL
+\set PROMPT1 '%n@%/\n%R%x%# '
+\set PROMPT2 '%R%x%# '
+\pset format wrapped
+\timing
+\pset pager always
+
