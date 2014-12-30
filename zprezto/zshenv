@@ -19,10 +19,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 ### Add mysql to the path
 export PATH="/usr/local/mysql/bin:$PATH"
 
-### Add postgres to the path
-export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin"
-export PGHOST=/tmp
-
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
 
