@@ -29,7 +29,7 @@ Plugin 'stephpy/vim-yaml'
 Plugin 'danro/rename.vim.git'
 Plugin 'vim-scripts/UnconditionalPaste'
 Plugin 'kchmck/vim-coffee-script'
-
+Plugin 'tpope/vim-eunuch.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()   " required
