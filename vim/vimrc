@@ -30,7 +30,7 @@ Plugin 'danro/rename.vim.git'
 Plugin 'vim-scripts/UnconditionalPaste'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'tpope/vim-eunuch.git'
-
+Plugin 'nanotech/jellybeans.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()   " required
 filetype plugin indent on     " required
