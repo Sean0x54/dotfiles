@@ -1,7 +1,8 @@
 require 'rubygems'
-require 'interactive_editor'
+require 'irb/ext/save-history'
+IRB.conf[:SAVE_HISTORY] = 1000
 require 'irb/completion'
+require 'interactive_editor'
 require 'wirble'
 Wirble.init
 Wirble.colorize
-
