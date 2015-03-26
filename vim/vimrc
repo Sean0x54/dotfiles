@@ -147,3 +147,7 @@ if has("macunix")
   endif
 endif
 
+" use tab to expand emmit
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+
+
