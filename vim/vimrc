@@ -149,6 +149,6 @@ if has("macunix")
 endif
 
 " use tab to expand emmit
-imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+imap <expr> <S-tab> emmet#expandAbbrIntelligent("\<tab>")
 
 
