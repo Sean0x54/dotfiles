@@ -32,6 +32,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'tpope/vim-eunuch.git'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'groenewege/vim-less'
+Plugin 'Keithbsmiley/rspec.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()   " required
 filetype plugin indent on     " required
@@ -50,7 +51,7 @@ filetype plugin indent on     " required
 "
 " " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
-" map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
 " map <Leader>l :call RunLastSpec()<CR>
 map <Leader>T :call RunAllSpecs()<CR>
 
