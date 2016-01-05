@@ -18,3 +18,9 @@ alias update_zprezto='cd $HOME/.zprezto && git pull && git submodule update --in
 export HISTFILE=$HOME/.zsh_history
 
 fpath=(/usr/local/share/zsh-completions $fpath)
+
+# added for the latest version of zsh
+unalias run-help
+autoload run-help
+HELPDIR=/usr/local/share/zsh/help
+
