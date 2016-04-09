@@ -13,7 +13,7 @@ fi
 # Customize to your needs...
 
 alias chrome='open -a Google\ Chrome --args --disable-web-security'
-alias update_zprezto='cd $HOME/.zprezto && git pull && git submodule update --init --recursive'
+alias update_zprezto='(cd $HOME/.zprezto && git pull && git submodule update --init --recursive)'
 alias update_vim='vim +VundleUpdate +qall'
 
 export HISTFILE=$HOME/.zsh_history
