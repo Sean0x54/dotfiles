@@ -13,7 +13,8 @@ fi
 # Customize to your needs...
 
 alias chrome='open -a Google\ Chrome --args --disable-web-security'
-alias update_zprezto='cd $HOME/.zprezto && git pull && git submodule update --init --recursive'
+alias update_zprezto='(cd $HOME/.zprezto && git pull && git submodule update --init --recursive)'
+alias update_vim='vim +VundleUpdate +qall'
 
 export HISTFILE=$HOME/.zsh_history
 
@@ -26,3 +27,10 @@ function pushover {
     -F "title=YOUR_TITLE_HERE" \
     -F "message=$1" https://api.pushover.net/1/messages.json
 }
+# added for the latest version of zsh
+unalias run-help
+autoload run-help
+HELPDIR=/usr/local/share/zsh/help
+
+# add awscli completion
+source /usr/local/share/zsh/site-functions/_aws
