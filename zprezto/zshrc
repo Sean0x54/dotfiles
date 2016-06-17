@@ -18,3 +18,11 @@ alias update_zprezto='cd $HOME/.zprezto && git pull && git submodule update --in
 export HISTFILE=$HOME/.zsh_history
 
 fpath=(/usr/local/share/zsh-completions $fpath)
+
+
+function pushover {
+    curl -s -F "token=arbXj1mWZ5RFScFyxLQwCxM7XAx5qK" \
+    -F "user=uhZQBdSaM68HhuPma13gYNk94bVRhX" \
+    -F "title=YOUR_TITLE_HERE" \
+    -F "message=$1" https://api.pushover.net/1/messages.json
+}
